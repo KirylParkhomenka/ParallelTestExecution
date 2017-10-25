@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Login" parallel="tests" thread-count="3">
+    <test name="Test Chrome" verbose="1">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="test.FirstTest"/>
+        </classes>
+    </test>
+    <test name="Test Firefox" verbose="1">
+        <parameter name="browserName" value="firefox"/>
+        <classes>
+            <class name="test.FirstTest"/>
+        </classes>
+    </test>
+</suite>
