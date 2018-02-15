@@ -11,9 +11,10 @@ public class DriverFactory {
     private static WebDriver driver;
 
     private static final String CHROME_DRIVER_PATH = "src/test/java/drivers/chromedriver.exe";
+    private static final String FIREFOX_DRIVER_PATH = "src/test/java/drivers/geckodriver.exe";
 
-    private static final int IMPLICIT_WAIT = 20;
-    private static final int PAGE_LOAD_TIMEOUT = 20;
+    private static final int IMPLICIT_WAIT = 10;
+    private static final int PAGE_LOAD_TIMEOUT = 10;
 
     public static WebDriver getWebDriverInstance(WebDriverTypes browserName) throws Exception {
         switch (browserName) {
@@ -32,6 +33,7 @@ public class DriverFactory {
     }
 
     public static WebDriver getFirefoxInstance() {
+        System.setProperty("webdriver.gecko.driver", FIREFOX_DRIVER_PATH);
         driver = new FirefoxDriver();
         prepareTimeouts();
         return driver;
